@@ -52,6 +52,7 @@ end
       if rand(1..10) <= 3  # 30% chance of encountering a trap
         puts "As you investigate, a chilling gust of wind fills the hall, and a trap is triggered!"
         # resolve_trap
+        puts "You resolved a trap!, What would you like to do?"
       else
         puts "What do you want to do?"
         puts "1. Continue investigating the mansion."
@@ -154,6 +155,7 @@ end
         if rand(1..10) <= 4  # 40% chance of encountering a trap
           puts "As you walk down the hallway, the candles flicker, and a trap is triggered!"
         #   resolve_trap
+          puts "You resolved the trap! What do you want to do now?"
         else
           puts "What do you want to do?"
           puts "1. Continue exploring the hallways."
@@ -174,13 +176,12 @@ end
           end
         end
       end
+
     def trigger_spooky_voice(message)
       puts "\n[Spooky Voice] #{message}"
     end
   
     # ... (other methods)
-  
-end
   
   # Start the Murder Castle Mystery Game with Hallways
   murder_castle_mystery_with_hallways = MurderCastleMysteryWithHallways.new
