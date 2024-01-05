@@ -28,7 +28,7 @@ class MurderCastleMysteryWithHallways
         puts "Times's up! The mystery remain unsolved."
         exit 
     else
-      puts "Remaining time: #{(remaining_time / 60).to_i} seconds" 
+      puts "remaning time: #{(remaning_time / 60).to_i} seconds" 
     end
 end    
 
@@ -67,7 +67,7 @@ end
       # Check for traps
       if rand(1..10) <= 3  # 30% chance of encountering a trap
         puts "As you investigate, a chilling gust of wind fills the hall, and a trap is triggered!"
-        resolve_trap
+        # resolve_trap
       else
         puts "What do you want to do?"
         puts "1. Continue investigating the mansion."
@@ -122,6 +122,7 @@ end
   
       # Check for items
       if rand(1..10) <= 6  # 60% chance of finding an item
+        generate_item = "clue"
         found_item = generate_item
         puts "Congratulations! You found #{found_item}. The air becomes even colder."
         @items << found_item
@@ -153,14 +154,52 @@ end
     end
   
     # ... (remaining methods)
-  
+
+    def inspect_basement
+        check_time_limit
+    
+        puts "\nYou enter a doorway, and the hallway beyond is dimly lit with flickering candles."
+        puts "The portraits on the walls seem to gaze at you with hollow eyes."
+    
+        # Check for items
+        if rand(1..10) <= 6  # 60% chance of finding an item
+          generate_item = "clue"
+          found_item = generate_item
+          puts "Congratulations! You found #{found_item}. The air becomes even colder."
+          @items << found_item
+        end
+    
+        # Check for traps
+        if rand(1..10) <= 4  # 40% chance of encountering a trap
+          puts "As you walk down the hallway, the candles flicker, and a trap is triggered!"
+        #   resolve_trap
+        else
+          puts "What do you want to do?"
+          puts "1. Continue exploring the hallways."
+          puts "2. Return to the entrance hall."
+          puts "3. Inspect the basement."
+    
+          choice = gets.chomp.to_i
+    
+          case choice
+          when 1
+            explore_hallways
+          when 2
+            explore_mansion
+          when 3
+            inspect_basement
+          else
+            # invalid_choice
+          end
+        end
+      end
     def trigger_spooky_voice(message)
       puts "\n[Spooky Voice] #{message}"
     end
   
     # ... (other methods)
   
-  end
+end
   
   # Start the Murder Castle Mystery Game with Hallways
   murder_castle_mystery_with_hallways = MurderCastleMysteryWithHallways.new
