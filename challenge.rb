@@ -4,8 +4,6 @@ class MurderCastleMysteryWithHallways
       @items = []       # Items collected by the detective
       @victim = "Unknown"
       @culprit = nil
-      @time_limit = 300  # Time limit in seconds (5 minutes)
-      @start_time = nil
       @ghost_mode = false  # Indicate that the detective is not initially aware of being a ghost
     end
   
@@ -15,26 +13,13 @@ class MurderCastleMysteryWithHallways
       @player[:name] = gets.chomp.capitalize
   
       puts "\nHello, Detective #{@player[:name]}! You find yourself in a mysterious and eerie mansion."
-      
-      @start_time = Time.now 
+       
       explore_mansion
-    end
-
-    def check_time_limit
-        elapsed_time = Time.now - @start_time
-        remaning_time = @time_limit - elapsed_time
-
-    if remaning_time <= 0
-        puts "Times's up! The mystery remain unsolved."
-        exit 
-    else
-      puts "remaning time: #{(remaning_time / 60).to_i} seconds" 
     end
 end    
 
   
     def explore_mansion
-      check_time_limit
   
       puts "\nYou find yourself in a dimly lit and spooky mansion, shrouded in mist and silence."
       puts "What do you want to do?"
@@ -57,7 +42,6 @@ end
     end
   
     def examine_entrance_hall
-      check_time_limit
   
       puts "\nYou carefully examine the entrance hall, feeling an eerie presence around you."
       puts "You find a strange symbol carved into the floor."
@@ -90,7 +74,6 @@ end
     end
   
     def explore_hallways
-      check_time_limit
   
       puts "\nYou decide to explore the hallways, unsure of what secrets they may hold."
       puts "You come across several doorways and corridors. Each hallway seems to have a mysterious aura."
@@ -115,7 +98,6 @@ end
     end
   
     def enter_doorway
-      check_time_limit
   
       puts "\nYou enter a doorway, and the hallway beyond is dimly lit with flickering candles."
       puts "The portraits on the walls seem to gaze at you with hollow eyes."
@@ -156,7 +138,6 @@ end
     # ... (remaining methods)
 
     def inspect_basement
-        check_time_limit
     
         puts "\nYou enter a doorway, and the hallway beyond is dimly lit with flickering candles."
         puts "The portraits on the walls seem to gaze at you with hollow eyes."
